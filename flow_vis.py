@@ -46,7 +46,7 @@ with st.sidebar:
     eta_s = st.slider("剪切粘滞系数 (η/s)", 0.0, 0.5, 0.08, step=0.01)
     
     st.divider()
-    st.subheader("🎨 各阶流强度 (vn)")
+    st.subheader("🎨 各阶流强度 (v{n})和相位Ψ{n}")
     v_input = {}
     psi_input = {}
     for n in range(1, 6):
@@ -154,3 +154,18 @@ with col_tabs:
         2. **3D 视图**：补充了纵向信息。你会发现尽管横截面很花哨，但粒子在 $z$ 轴方向是均匀延展的（Bjorken Expansion 的简化表现）。
         3. **关联分析**：揭示了即使每一阶 $v_n$ 看起来很乱，它们之间依然遵循着流体动力学的内在逻辑。
         """)
+
+        # --- 7. 页脚与免责声明 ---
+st.divider() # 添加一条横线分割主内容和页脚
+
+# 使用 Markdown 自定义样式
+st.markdown("""
+    <div style="text-align: center; color: #888; font-size: 0.9em;">
+        <p>🚀 <b>Made by Yutong and Gemini</b></p>
+        <p style="font-style: italic; font-size: 0.8em;">
+            免责声明：本程序仅用于物理教学演示与现象学可视化。
+            代码计算基于简化模型，开发者不保证物理数值的绝对精确性，
+            科学研究请以正式的流体动力学模拟软件（如 VISH2+1 或 MUSIC）为准。
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
